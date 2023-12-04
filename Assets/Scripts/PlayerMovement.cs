@@ -99,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
     private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Trampoline"))
             rb.AddForce(transform.up * highJumpForce, ForceMode.Impulse);
     }
 }

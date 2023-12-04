@@ -7,6 +7,9 @@ TagManager:
   - Bullet
   - Ground
   - Trampoline
+  - gun1Pickup
+  - gun2Pickup
+  - gun3Pickup
   layers:
   - Default
   - TransparentFX

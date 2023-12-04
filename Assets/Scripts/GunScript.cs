@@ -26,7 +26,7 @@ public class GunScript : MonoBehaviour
     public bool allowInvoke = true;
 
     
-    public TextMeshProUGUI ammunitionDisplay;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,8 +37,7 @@ public class GunScript : MonoBehaviour
     private void Update()
     {
         MyInput();
-        if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+        
     }
 
     private void MyInput()
@@ -46,11 +45,9 @@ public class GunScript : MonoBehaviour
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        
 
-        if (readyToShoot && shooting && reloading && bulletsLeft <= 0) Reload();
-
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if(readyToShoot && shooting && bulletsLeft > 0)
         {
             bulletsShot = 0;
 
@@ -108,15 +105,7 @@ public class GunScript : MonoBehaviour
         readyToShoot = true;
         allowInvoke = true;
     }
-    private void Reload()
-    {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-    }
-    private void ReloadFinished()
-    {
-        bulletsLeft = magazineSize;
-        reloading = false;
-    }
+    
+    
 
 }
