@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDrag;
 
     public float jumpForce;
+
+    public float highJumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
@@ -95,5 +97,8 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+    private void OnTriggerEnter(Collider other) {
+            rb.AddForce(transform.up * highJumpForce, ForceMode.Impulse);
     }
 }

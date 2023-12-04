@@ -6,6 +6,13 @@ using UnityEngine;
 public class GranadeScript : MonoBehaviour
 {
     public Rigidbody rb;
+
+    
+
+    public GameObject trampoline;
+
+    public Transform spawnPoint;
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,9 +26,12 @@ public class GranadeScript : MonoBehaviour
 
         
         
-        if(Input.GetMouseButton(1))
+        if(Input.GetKeyDown(KeyCode.Mouse1))
         {
             rb.constraints = RigidbodyConstraints.None;
+            var copy = Instantiate(trampoline, spawnPoint.position, spawnPoint.rotation);
+            Destroy(copy, 1f);
+            Invoke("DestroyBullet", 1.1f);
         }
     }
 
@@ -31,8 +41,10 @@ public class GranadeScript : MonoBehaviour
         
     }
 
+       
+
     void DestroyBullet()
     {
         Destroy(gameObject);
-    }    
+    }
 }
