@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunManager : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class GunManager : MonoBehaviour
 
     public Shotgun gun2;
     public GranadeLauncher gun3;
+
+    public GameObject Gun;
+
+
 
     bool hasGun1 = false;
     bool hasGun2 = false;
@@ -20,6 +26,14 @@ public class GunManager : MonoBehaviour
 
     bool gun3Active = false;
 
+    public Text firstMessage;
+
+    public Text gun1Message;
+
+    public Text gun2Message;
+
+    public Text gun3Message;
+
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +42,7 @@ public class GunManager : MonoBehaviour
             gun1Active = true;
             gun2Active = false;
             gun3Active = false;
+            Gun.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
         if(hasGun2 == true && Input.GetKeyDown(KeyCode.Alpha2))
@@ -35,6 +50,7 @@ public class GunManager : MonoBehaviour
             gun1Active = false;
             gun2Active = true;
             gun3Active = false;
+            Gun.GetComponent<Renderer>().material.color = Color.blue;
         }
 
         if(hasGun3 == true && Input.GetKeyDown(KeyCode.Alpha3))
@@ -42,6 +58,7 @@ public class GunManager : MonoBehaviour
             gun1Active = false;
             gun2Active = false;
             gun3Active = true;
+            Gun.GetComponent<Renderer>().material.color = Color.green;
         }
 
 
@@ -81,6 +98,11 @@ public class GunManager : MonoBehaviour
             gun1Active = true;
             gun2Active = false;
             gun3Active = false;
+            Destroy(other.gameObject);
+            Gun.GetComponent<Renderer>().material.color = Color.yellow;
+            firstMessage.enabled = false;
+            gun1Message.enabled = true;
+            
         }
         if(other.gameObject.CompareTag("gun2Pickup"))
         {
@@ -88,6 +110,11 @@ public class GunManager : MonoBehaviour
             gun2Active = true;
             gun1Active = false;
             gun3Active = false;
+            Destroy(other.gameObject);
+            Gun.GetComponent<Renderer>().material.color = Color.blue;
+            firstMessage.enabled = false;
+            gun2Message.enabled = true;
+            
         }
         if(other.gameObject.CompareTag("gun3Pickup"))
         {
@@ -95,6 +122,11 @@ public class GunManager : MonoBehaviour
             gun3Active = true;
             gun2Active = false;
             gun1Active = false;
+            Destroy(other.gameObject);
+            Gun.GetComponent<Renderer>().material.color = Color.green;
+            firstMessage.enabled = false;
+            gun3Message.enabled = true;
+            
         }
     }
 }

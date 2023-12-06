@@ -12,11 +12,15 @@ public class GranadeScript : MonoBehaviour
     public GameObject trampoline;
 
     public Transform spawnPoint;
+
+    public GranadeLauncher whenToShoot;
     
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         Invoke("StopBullet", 0.7f);
+
+        whenToShoot = GameObject.FindGameObjectWithTag("Gun").GetComponent<GranadeLauncher>();
     }
 
     // Update is called once per frame
@@ -46,5 +50,16 @@ public class GranadeScript : MonoBehaviour
     void DestroyBullet()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+
+    if(other.gameObject.CompareTag("Ground"))
+    {
+        Destroy(gameObject);
+        
+        whenToShoot.canShoot = true;
+    }
+
     }
 }
