@@ -30,13 +30,12 @@ public class GranadeScript : MonoBehaviour
 
         
         
-        if(Input.GetKeyDown(KeyCode.Mouse1) && primed)
+        if(Input.GetKey(KeyCode.Mouse1) && primed)
         {
             rb.constraints = RigidbodyConstraints.None;
-            var copy = Instantiate(trampoline, spawnPoint.position, spawnPoint.rotation);
+            var copy = Instantiate(trampoline, spawnPoint.position, Quaternion.LookRotation(Vector3.forward));//spawnPoint.rotation);
             Destroy(copy, 3f);
-            Invoke("DestroyBullet", 0.05f);
-            Invoke("DestroyBullet", 1.1f);
+            Invoke("DestroyBullet", 0.00f);
         }
     }
 

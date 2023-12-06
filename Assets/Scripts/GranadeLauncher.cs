@@ -12,8 +12,13 @@ public class GranadeLauncher : MonoBehaviour
 
   void Update()
   {
-    if(Input.GetMouseButtonDown(0) && canShoot == true)
+    if(Input.GetMouseButtonDown(0) )//&& canShoot == true)
     {
+        var _oldProjectiles = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject _bullet in _oldProjectiles)
+            {
+                Destroy(_bullet);
+            }
         var _projectile = Instantiate(projectile, launchPoint.position, launchPoint.rotation);
         _projectile.GetComponent<Rigidbody>().velocity = (launchSpeed * launchPoint.up) + (launchSpeed*1.2f * launchPoint.forward);
 
@@ -22,9 +27,9 @@ public class GranadeLauncher : MonoBehaviour
         canShoot = false;
     }
 
-    if(Input.GetMouseButtonDown(1))
-    {
-        canShoot = true;
-    }
+    //if(Input.GetMouseButtonDown(1))
+    //{
+    //    canShoot = true;
+    //}
   }
 }
