@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Trampoline"))
-            rb.AddForce(transform.up * highJumpForce, ForceMode.Impulse);
+            rb.velocity = new Vector3(rb.velocity.x, highJumpForce, rb.velocity.z);
+            //rb.AddForce(transform.up * highJumpForce, ForceMode.Impulse);
     }
 }

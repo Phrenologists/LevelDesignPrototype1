@@ -7,7 +7,7 @@ public class GranadeScript : MonoBehaviour
 {
     public Rigidbody rb;
 
-    
+    private bool primed = false;
 
     public GameObject trampoline;
 
@@ -18,7 +18,7 @@ public class GranadeScript : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        Invoke("StopBullet", 0.7f);
+        Invoke("StopBullet", 0.4f);
 
         whenToShoot = GameObject.FindGameObjectWithTag("Gun").GetComponent<GranadeLauncher>();
     }
@@ -30,19 +30,19 @@ public class GranadeScript : MonoBehaviour
 
         
         
-        if(Input.GetKeyDown(KeyCode.Mouse1))
+        if(Input.GetKeyDown(KeyCode.Mouse1) && primed)
         {
             rb.constraints = RigidbodyConstraints.None;
             var copy = Instantiate(trampoline, spawnPoint.position, spawnPoint.rotation);
-            Destroy(copy, 1f);
+            Destroy(copy, 3f);
             Invoke("DestroyBullet", 1.1f);
         }
     }
 
     void StopBullet()
     {
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-        
+        //rb.constraints = RigidbodyConstraints.FreezeAll;
+        primed = true;
     }
 
        
