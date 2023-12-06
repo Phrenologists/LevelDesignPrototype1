@@ -6,7 +6,7 @@ public class GranadeLauncher : MonoBehaviour
 {
   public Transform launchPoint;
   public GameObject projectile;
-  public float launchSpeed = 10f;
+  public float launchSpeed = 12f;
 
   public bool canShoot = true;
 
@@ -15,7 +15,7 @@ public class GranadeLauncher : MonoBehaviour
     if(Input.GetMouseButtonDown(0) && canShoot == true)
     {
         var _projectile = Instantiate(projectile, launchPoint.position, launchPoint.rotation);
-        _projectile.GetComponent<Rigidbody>().velocity = (launchSpeed * launchPoint.up) + (launchSpeed * launchPoint.forward);
+        _projectile.GetComponent<Rigidbody>().velocity = (launchSpeed * launchPoint.up) + (launchSpeed*1.2f * launchPoint.forward);
 
         Debug.Log(_projectile.GetComponent<Rigidbody>().velocity);
 

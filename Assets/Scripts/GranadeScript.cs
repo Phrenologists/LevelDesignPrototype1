@@ -35,6 +35,7 @@ public class GranadeScript : MonoBehaviour
             rb.constraints = RigidbodyConstraints.None;
             var copy = Instantiate(trampoline, spawnPoint.position, spawnPoint.rotation);
             Destroy(copy, 3f);
+            Invoke("DestroyBullet", 0.05f);
             Invoke("DestroyBullet", 1.1f);
         }
     }
