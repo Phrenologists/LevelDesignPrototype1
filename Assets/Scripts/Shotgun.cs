@@ -49,13 +49,13 @@ public class Shotgun : MonoBehaviour
         {
             ReversetShoot();
             canShoot = false;
-            Invoke("LaterReset", 0.2f);
+            Invoke("LaterReset", 0.01f);
         }
 
         if(isGrounded.grounded && hasShot == true)
         {
 
-            Invoke("ResetShooting", 0.5f);
+            Invoke("ResetShooting", 0.01f);
 
         }
         

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
-    public GameObject connectedObject;
+    public GameObject [] connectedObject;
     
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(connectedObject);
+            Destroy(connectedObject[0]);
+            Destroy(connectedObject[1]);
             Debug.Log("hit");
         }
     }

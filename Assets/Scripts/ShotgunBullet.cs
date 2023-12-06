@@ -14,7 +14,7 @@ public class ShotgunBullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        Invoke("DestroyBullet", 0.1f);
+        Invoke("DestroyBullet", 0.2f);
     }
  void DestroyBullet()
     {

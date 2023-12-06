@@ -14,4 +14,11 @@ public class CustomBullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            DestroyBullet();
+        }
+    }
 }

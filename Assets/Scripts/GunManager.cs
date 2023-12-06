@@ -14,11 +14,15 @@ public class GunManager : MonoBehaviour
     bool hasGun2 = false;
     bool hasGun3 = false;
 
+    public GameObject Gun;
+
 
     bool gun1Active = false;
     bool gun2Active = false;
 
     bool gun3Active = false;
+
+
 
     // Update is called once per frame
     void Update()
@@ -28,6 +32,7 @@ public class GunManager : MonoBehaviour
             gun1Active = true;
             gun2Active = false;
             gun3Active = false;
+            Gun.GetComponent<Renderer>().material.color = Color.yellow;
         }
 
         if(hasGun2 == true && Input.GetKeyDown(KeyCode.Alpha2))
@@ -35,6 +40,7 @@ public class GunManager : MonoBehaviour
             gun1Active = false;
             gun2Active = true;
             gun3Active = false;
+            Gun.GetComponent<Renderer>().material.color = Color.blue;
         }
 
         if(hasGun3 == true && Input.GetKeyDown(KeyCode.Alpha3))
@@ -42,6 +48,7 @@ public class GunManager : MonoBehaviour
             gun1Active = false;
             gun2Active = false;
             gun3Active = true;
+            Gun.GetComponent<Renderer>().material.color = Color.green;
         }
 
 
@@ -81,6 +88,8 @@ public class GunManager : MonoBehaviour
             gun1Active = true;
             gun2Active = false;
             gun3Active = false;
+            Destroy(other.gameObject);
+            Gun.GetComponent<Renderer>().material.color = Color.yellow;
         }
         if(other.gameObject.CompareTag("gun2Pickup"))
         {
@@ -88,6 +97,8 @@ public class GunManager : MonoBehaviour
             gun2Active = true;
             gun1Active = false;
             gun3Active = false;
+            Destroy(other.gameObject);
+            Gun.GetComponent<Renderer>().material.color = Color.blue;
         }
         if(other.gameObject.CompareTag("gun3Pickup"))
         {
@@ -95,6 +106,8 @@ public class GunManager : MonoBehaviour
             gun3Active = true;
             gun2Active = false;
             gun1Active = false;
+            Destroy (other.gameObject);
+            Gun.GetComponent<Renderer>().material.color = Color.green;
         }
     }
 }
