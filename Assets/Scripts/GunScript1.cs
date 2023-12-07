@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class GunScript : MonoBehaviour
+public class GunScript1 : MonoBehaviour
 {
     public GameObject bullet;
 

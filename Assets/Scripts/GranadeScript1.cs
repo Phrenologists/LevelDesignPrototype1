@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GranadeScript : MonoBehaviour
+public class GranadeScript1 : MonoBehaviour
 {
     public Rigidbody rb;
 
@@ -13,14 +13,14 @@ public class GranadeScript : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public GranadeLauncher whenToShoot;
+    public GranadeLauncher1 whenToShoot;
     
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         Invoke("StopBullet", 0.4f);
 
-        whenToShoot = GameObject.FindGameObjectWithTag("Gun").GetComponent<GranadeLauncher>();
+        whenToShoot = GameObject.FindGameObjectWithTag("Gun").GetComponent<GranadeLauncher1>();
     }
 
     // Update is called once per frame

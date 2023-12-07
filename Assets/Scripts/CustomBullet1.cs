@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomBullet : MonoBehaviour
+public class CustomBullet1 : MonoBehaviour
 {
    void Update()
     {

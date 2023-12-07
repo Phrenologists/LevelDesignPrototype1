@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun : MonoBehaviour
+public class Shotgun1 : MonoBehaviour
 {
     
     public Transform spawnPoint;
@@ -25,7 +25,7 @@ public class Shotgun : MonoBehaviour
 
     public Rigidbody playerRb;
 
-    public PlayerMovement isGrounded;
+    public PlayerMovement1 isGrounded;
 
     
     // Start is called before the first frame update

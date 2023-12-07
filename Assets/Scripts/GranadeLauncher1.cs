@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GranadeLauncher : MonoBehaviour
+public class GranadeLauncher1 : MonoBehaviour
 {
   public Transform launchPoint;
   public GameObject projectile;

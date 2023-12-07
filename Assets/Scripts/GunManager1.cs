@@ -4,13 +4,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GunManager : MonoBehaviour
+public class GunManager1 : MonoBehaviour
 {
 
-    public GunScript gun1;
+    public GunScript1 gun1;
 
-    public Shotgun gun2;
-    public GranadeLauncher gun3;
+    public Shotgun1 gun2;
+    public GranadeLauncher1 gun3;
 
     public GameObject Gun;
 
