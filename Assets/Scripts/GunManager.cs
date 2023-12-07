@@ -26,13 +26,7 @@ public class GunManager : MonoBehaviour
 
     bool gun3Active = false;
 
-    public Text firstMessage;
-
-    public Text gun1Message;
-
-    public Text gun2Message;
-
-    public Text gun3Message;
+    
 
     // Update is called once per frame
     void Update()
@@ -100,8 +94,8 @@ public class GunManager : MonoBehaviour
             gun3Active = false;
             Destroy(other.gameObject);
             Gun.GetComponent<Renderer>().material.color = Color.yellow;
-            firstMessage.enabled = false;
-            gun1Message.enabled = true;
+            
+            Debug.Log("Works");
             
         }
         if(other.gameObject.CompareTag("gun2Pickup"))
@@ -112,8 +106,7 @@ public class GunManager : MonoBehaviour
             gun3Active = false;
             Destroy(other.gameObject);
             Gun.GetComponent<Renderer>().material.color = Color.blue;
-            firstMessage.enabled = false;
-            gun2Message.enabled = true;
+            
             
         }
         if(other.gameObject.CompareTag("gun3Pickup"))
@@ -124,8 +117,7 @@ public class GunManager : MonoBehaviour
             gun1Active = false;
             Destroy(other.gameObject);
             Gun.GetComponent<Renderer>().material.color = Color.green;
-            firstMessage.enabled = false;
-            gun3Message.enabled = true;
+            
             
         }
     }
