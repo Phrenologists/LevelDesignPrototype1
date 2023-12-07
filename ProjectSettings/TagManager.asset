@@ -11,6 +11,7 @@ TagManager:
   - gun2Pickup
   - gun3Pickup
   - Gun
+  - Obstacle
   layers:
   - Default
   - TransparentFX
